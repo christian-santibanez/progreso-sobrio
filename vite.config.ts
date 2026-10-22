@@ -41,5 +41,23 @@ export default defineConfig(({ mode }) => {
             }),
           ]),
     ],
+    test: {
+      globals: true,
+      environment: 'node',
+      coverage: {
+        provider: 'v8',
+        reporter: ['text', 'json', 'html'],
+        exclude: [
+          'node_modules/',
+          'src/main.tsx',
+          'src/App.tsx',
+          '**/*.d.ts',
+          '**/*.config.*',
+          '**/mockData',
+          'dist/',
+          'dist-android/',
+        ],
+      },
+    },
   }
 })
